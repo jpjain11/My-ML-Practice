@@ -1,2 +1,4 @@
 # My-ML-Practice
-Importing pandas and nu
+import panda
+import numpy
+

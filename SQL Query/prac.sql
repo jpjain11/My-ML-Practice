@@ -6,9 +6,9 @@ CREATE TABLE IF NOT EXISTS OLYMPICS_HISTORY
     id          INT,
     name        VARCHAR,
     sex         VARCHAR,
-    age         VARCHAR,
-    height      VARCHAR,
-    weight      VARCHAR,
+    age         INT,
+    height      INT,
+    weight      DOUBLE,
     team        VARCHAR,
     noc         VARCHAR,
     games       VARCHAR,
@@ -93,7 +93,8 @@ select distinct t1.sport,t1.total,oh.games from cte1 as t1 join olympic_history 
 select games,count(distinct sport) as total from olympic_history group by games order by total desc,games asc
 
 9. Fetch oldest athletes to win a gold medal
-
+select *  from olympic_history where medal='Gold' and age=(
+select max(age) from olympic_history where medal='Gold') order by games desc
 
 10. Find the Ratio of male and female athletes participated in all olympic games.
 
